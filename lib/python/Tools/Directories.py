@@ -19,6 +19,12 @@ SCOPE_PLAYLIST = 11
 SCOPE_CURRENT_SKIN = 12
 SCOPE_METADIR = 16
 SCOPE_CURRENT_PLUGIN = 17
+SCOPE_ACTIVE_SKIN = 18
+SCOPE_GUISKIN = 19
+
+
+SCOPE_ACTIVE_SKIN = SCOPE_GUISKIN
+
 
 PATH_CREATE = 0
 PATH_DONTCREATE = 1
@@ -37,6 +43,7 @@ defaultPaths = {
 		SCOPE_HDD: ("/hdd/movie/", PATH_DONTCREATE),
 		SCOPE_MEDIA: ("/media/", PATH_DONTCREATE),
 		SCOPE_PLAYLIST: (eEnv.resolve("${sysconfdir}/enigma2/playlist/"), PATH_CREATE),
+        SCOPE_ACTIVE_SKIN: (eEnv.resolve("${datadir}/enigma2/"), PATH_DONTCREATE),
 
 		SCOPE_USERETC: ("", PATH_DONTCREATE), # user home directory
 
