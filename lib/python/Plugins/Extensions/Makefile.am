@@ -2,5 +2,142 @@ installdir = $(pkglibdir)/python/Plugins/Extensions
 
 SUBDIRS = TuxboxPlugins CutListEditor DVDPlayer PicturePlayer MediaScanner MediaPlayer GraphMultiEPG SocketMMI
 
+if ENABLE_TF7700
+SUBDIRS += TopfieldVFD
+endif
+
+if ENABLE_CUBEREVO_MINI_FTA
+SUBDIRS += CuberevoVFD
+endif
+
+if ENABLE_CUBEREVO_250HD
+SUBDIRS += CuberevoVFD
+endif
+
+if ENABLE_CUBEREVO_MINI
+SUBDIRS += CuberevoVFD
+endif
+
+if ENABLE_CUBEREVO_MINI2
+SUBDIRS += CuberevoVFD
+endif
+
+if ENABLE_CUBEREVO_2000HD
+SUBDIRS += CuberevoVFD
+endif
+
+if ENABLE_CUBEREVO_3000HD
+SUBDIRS += CuberevoVFD
+endif
+
+if ENABLE_CUBEREVO_9500HD
+SUBDIRS += CuberevoVFD
+endif
+
+if ENABLE_CUBEREVO
+SUBDIRS += CuberevoVFD
+endif
+
+if ENABLE_FS9000
+SUBDIRS += fs9000VFD
+endif
+
+if ENABLE_HS9510
+SUBDIRS += hs9510VFD
+endif
+
+if ENABLE_HS8200
+SUBDIRS += hs8200VFD
+endif
+
+if ENABLE_HS7110
+SUBDIRS += hs7110VFD
+endif
+
+if ENABLE_HS7420
+SUBDIRS += hs742xVFD
+endif
+
+if ENABLE_HS7810A
+SUBDIRS += hs7810aVFD
+endif
+
+if ENABLE_HS7119
+SUBDIRS += hs7810aVFD
+endif
+
+if ENABLE_HS7429
+SUBDIRS += hs742xVFD
+endif
+
+if ENABLE_HS7819
+SUBDIRS += hs7810aVFD
+endif
+
+if ENABLE_SPARK7162
+SUBDIRS += spark7162VFD
+endif
+ 
+if ENABLE_SPARK
+SUBDIRS += sparkVFD
+endif
+
+if ENABLE_HL101
+SUBDIRS += spark7162VFD
+endif
+ 
+if ENABLE_VIP1_V1
+SUBDIRS += spark7162VFD
+endif
+ 
+if ENABLE_VIP1_V2
+SUBDIRS += spark7162VFD
+endif
+ 
+if ENABLE_VIP2
+SUBDIRS += spark7162VFD
+endif
+ 
+if ENABLE_ADB_BOX
+SUBDIRS += adb_5800VFD
+endif
+
+if ENABLE_PACE7241
+SUBDIRS += pace7241VFD
+endif
+
+if ENABLE_OPT9600
+SUBDIRS += opt9600VFD
+endif
+
+if ENABLE_UFS910
+SUBDIRS += ufs9xxVFD
+endif
+
+if ENABLE_UFS912
+SUBDIRS += ufs9xxVFD
+endif
+
+if ENABLE_UFS913
+SUBDIRS += ufs9xxVFD
+endif
+
+if ENABLE_UFS922
+SUBDIRS += ufs9xxVFD
+endif
+
+if ENABLE_HCHS8100
+SUBDIRS += hchsxx00VFD
+endif
+
+if HAVE_LIBDDVD
+SUBDIRS += DVDPlayer
+endif
+
+
+if ! ENABLE_MINIMAL
+SUBDIRS += ModemSettings
+endif
+
 install_PYTHON =	\
 	__init__.py
