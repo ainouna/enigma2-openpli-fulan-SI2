@@ -29,22 +29,323 @@ TUXBOX_APPS_DVB
 AM_CONDITIONAL(HAVE_GIT_DIR, test -d "$srcdir/.git")
 AM_CONDITIONAL(HAVE_FAKE_GIT_DIR, test -f "$srcdir/.git/last_commit_info")
 
-AC_ARG_ENABLE(spark,
-	[  --enable-spark          enable spark stuff],
-	[AC_DEFINE(ENABLE_SPARK,1,[enable spark stuff])])
+AC_ARG_WITH(gstversion,
+	AS_HELP_STRING([--with-gstversion],[use gstreamer version (major.minor)]),
+	[GST_MAJORMINOR=$withval],[GST_MAJORMINOR=1.0])
 
-AM_CONDITIONAL(ENABLE_SPARK,test "$enable_spark" = "yes")
+AC_ARG_ENABLE(run_from_usb,
+	[  --enable-run_from_usb      enable run_from_usb stuff],
+	[AC_DEFINE(ENABLE_RUN_FROM_USB, 1, [enable run_from_usb stuff])])
+AM_CONDITIONAL(ENABLE_RUN_FROM_USB, test "$enable_run_from_usb" = "yes")
+if test "$run_from_usb" = "yes"; then
+	AC_DEFINE(ENABLE_RUN_FROM_USB, 1, [enable run_from_usb stuff])
+fi
+
+AC_ARG_ENABLE(tf7700,
+	[  --enable-tf7700            enable tf7700 stuff],
+	[AC_DEFINE(ENABLE_TF7700, 1, [enable tf7700 stuff])])
+AM_CONDITIONAL(ENABLE_TF7700, test "$enable_tf7700" = "yes")
+if test "$enable_tf7700" = "yes"; then
+	AC_DEFINE(ENABLE_TF7700, 1, [enable tf7700 stuff])
+fi
+
+AC_ARG_ENABLE(cuberevo_250hd,
+	[  --enable-cuberevo_250hd    enable cuberevo_250d stuff],
+	[AC_DEFINE(ENABLE_CUBEREVO_250HD, 1, [enable cuberevo_250hd stuff])])
+AM_CONDITIONAL(ENABLE_CUBEREVO_250HD, test "$enable_cuberevo_250hd" = "yes")
+if test "$enable_cuberevo_250hd" = "yes"; then
+	AC_DEFINE(ENABLE_CUBEREVO_250HD, 1, [enable cuberevo_250hd stuff])
+fi
+
+AC_ARG_ENABLE(cuberevo_2000hd,
+	[  --enable-cuberevo_2000hd   enable cuberevo_2000hd stuff],
+	[AC_DEFINE(ENABLE_CUBEREVO_2000HD, 1, [enable cuberevo_2000hd stuff])])
+AM_CONDITIONAL(ENABLE_CUBEREVO_2000HD, test "$enable_cuberevo_2000hd" = "yes")
+if test "$enable_cuberevo_2000hd" = "yes"; then
+	AC_DEFINE(ENABLE_CUBEREVO_2000HD, 1, [enable cuberevo_2000hd stuff])
+fi
+
+AC_ARG_ENABLE(cuberevo_3000hd,
+	[  --enable-cuberevo_3000hd   enable cuberevo_3000hd stuff],
+	[AC_DEFINE(ENABLE_CUBEREVO_3000HD, 1, [enable cuberevo_3000hd stuff])])
+AM_CONDITIONAL(ENABLE_CUBEREVO_3000HD, test "$enable_cuberevo_3000hd" = "yes")
+if test "$enable_cuberevo_3000hd" = "yes"; then
+	AC_DEFINE(ENABLE_CUBEREVO_3000HD, 1, [enable cuberevo_3000hd stuff])
+fi
+
+AC_ARG_ENABLE(cuberevo_9500hd,
+	[  --enable-cuberevo_9500hd   enable cuberevo_9500hd stuff],
+	[AC_DEFINE(ENABLE_CUBEREVO_9500HD, 1, [enable cuberevo_9500hd stuff])])
+AM_CONDITIONAL(ENABLE_CUBEREVO_9500HD, test "$enable_cuberevo_9500hd" = "yes")
+if test "$enable_cuberevo_9500hd" = "yes"; then
+	AC_DEFINE(ENABLE_CUBEREVO_9500HD, 1, [enable cuberevo_9500hd stuff])
+fi
+
+AC_ARG_ENABLE(cuberevo_mini,
+	[  --enable-cuberevo_mini     enable cuberevo_mini stuff],
+	[AC_DEFINE(ENABLE_CUBEREVO_MINI, 1, [enable cuberevo_mini stuff])])
+AM_CONDITIONAL(ENABLE_CUBEREVO_MINI, test "$enable_cuberevo_mini" = "yes")
+if test "$enable_cuberevo_mini" = "yes"; then
+	AC_DEFINE(ENABLE_CUBEREVO_MINI, 1, [enable cuberevo_mini stuff])
+fi
+
+AC_ARG_ENABLE(cuberevo_mini2,
+	[  --enable-cuberevo_mini2    enable cuberevo_mini2 stuff],
+	[AC_DEFINE(ENABLE_CUBEREVO_MINI2, 1, [enable cuberevo_mini2 stuff])])
+AM_CONDITIONAL(ENABLE_CUBEREVO_MINI2, test "$enable_cuberevo_mini2" = "yes")
+if test "$enable_cuberevo_mini2" = "yes"; then
+	AC_DEFINE(ENABLE_CUBEREVO_MINI2, 1, [enable cuberevo_mini2 stuff])
+fi
+
+AC_ARG_ENABLE(cuberevo_mini_fta,
+	[  --enable-cuberevo_mini_fta enable cuberevo_mini_fta stuff],
+	[AC_DEFINE(ENABLE_CUBEREVO_MINI_FTA, 1, [enable cuberevo_mini_fta stuff])])
+AM_CONDITIONAL(ENABLE_CUBEREVO_MINI_FTA, test "$enable_cuberevo_mini_fta" = "yes")
+if test "$enable_cuberevo_mini_fta" = "yes"; then
+	AC_DEFINE(ENABLE_CUBEREVO_MINI_FTA, 1, [enable cuberevo_mini_fta stuff])
+fi
+
+AC_ARG_ENABLE(cuberevo,
+	[  --enable-cuberevo          enable cuberevo stuff],
+	[AC_DEFINE(ENABLE_CUBEREVO, 1, [enable cuberevo stuff])])
+AM_CONDITIONAL(ENABLE_CUBEREVO, test "$enable_cuberevo" = "yes")
+if test "$enable_cuberevo" = "yes"; then
+	AC_DEFINE(ENABLE_CUBEREVO, 1, [enable cuberevo stuff])
+fi
+
+AC_ARG_ENABLE(spark,
+	[  --enable-spark             enable spark stuff],
+	[AC_DEFINE(ENABLE_SPARK, 1, [enable spark stuff])])
+AM_CONDITIONAL(ENABLE_SPARK, test "$enable_spark" = "yes")
 if test "$enable_spark" = "yes"; then
-	AC_DEFINE(ENABLE_SPARK,1,[enable spark stuff])
+	AC_DEFINE(ENABLE_SPARK, 1, [enable spark stuff])
 fi
 
 AC_ARG_ENABLE(spark7162,
-	[  --enable-spark7162          enable spark7162 stuff],
-	[AC_DEFINE(ENABLE_SPARK7162,1,[enable spark7162 stuff])])
-
-AM_CONDITIONAL(ENABLE_SPARK7162,test "$enable_spark7162" = "yes")
+	[  --enable-spark7162         enable spark7162 stuff],
+	[AC_DEFINE(ENABLE_SPARK7162, 1, [enable spark7162 stuff])])
+AM_CONDITIONAL(ENABLE_SPARK7162, test "$enable_spark7162" = "yes")
 if test "$enable_spark7162" = "yes"; then
-	AC_DEFINE(ENABLE_SPARK7162,1,[enable spark7162 stuff])
+	AC_DEFINE(ENABLE_SPARK7162, 1, [enable spark stuff])
+fi
+
+AC_ARG_ENABLE(hs9510,
+	[  --enable-hs9510            enable hs9510 stuff],
+	[AC_DEFINE(ENABLE_HS9510, 1, [enable hs9510 stuff])])
+AM_CONDITIONAL(ENABLE_HS9510, test "$enable_hs9510" = "yes")
+if test "$enable_hs9510" = "yes"; then
+	AC_DEFINE(ENABLE_HS9510, 1, [enable hs9510 stuff])
+fi
+
+AC_ARG_ENABLE(hs8200,
+	[  --enable-hs8200            enable hs8200 stuff],
+	[AC_DEFINE(ENABLE_HS8200, 1, [enable hs8200 stuff])])
+AM_CONDITIONAL(ENABLE_HS8200, test "$enable_hs8200" = "yes")
+if test "$enable_hs8200" = "yes"; then
+	AC_DEFINE(ENABLE_HS8200, 1, [enable hs8200 stuff])
+fi
+
+AC_ARG_ENABLE(fs9000,
+	[  --enable-fs9000            enable fs9000 stuff],
+[AC_DEFINE(ENABLE_FS9000, 1, [enable fs9000 stuff])])
+
+AM_CONDITIONAL(ENABLE_FS9000, test "$enable_fs9000" = "yes")
+if test "$enable_fs9000" = "yes"; then
+	AC_DEFINE(ENABLE_FS9000, 1, [enable fs9000 stuff])
+fi
+
+AC_ARG_ENABLE(hs7110,
+	[  --enable-hs7110            enable hs7110 stuff],
+[AC_DEFINE(ENABLE_HS7110, 1, [enable hs7110 stuff])])
+
+AM_CONDITIONAL(ENABLE_HS7110, test "$enable_hs7110" = "yes")
+if test "$enable_hs7110" = "yes"; then
+	AC_DEFINE(ENABLE_HS7110, 1, [enable hs7110 stuff])
+fi
+
+AC_ARG_ENABLE(hs7119,
+	[  --enable-hs7119            enable hs7119 stuff],
+[AC_DEFINE(ENABLE_HS7119, 1, [enable hs7119 stuff])])
+
+AM_CONDITIONAL(ENABLE_HS7119, test "$enable_hs7119" = "yes")
+if test "$enable_hs7119" = "yes"; then
+	AC_DEFINE(ENABLE_HS7119, 1, [enable hs7119 stuff])
+fi
+
+AC_ARG_ENABLE(hs7420,
+	[  --enable-hs7420            enable hs7420 stuff],
+	[AC_DEFINE(ENABLE_HS7420, 1, [enable hs7420 stuff])])
+AM_CONDITIONAL(ENABLE_HS7420, test "$enable_hs7420" = "yes")
+if test "$enable_hs7420" = "yes"; then
+	AC_DEFINE(ENABLE_HS7420, 1, [enable hs7420 stuff])
+fi
+
+AC_ARG_ENABLE(hs7429,
+	[  --enable-hs7429            enable hs7429 stuff],
+	[AC_DEFINE(ENABLE_HS7429, 1, [enable hs7429 stuff])])
+AM_CONDITIONAL(ENABLE_HS7429, test "$enable_hs7429" = "yes")
+if test "$enable_hs7429" = "yes"; then
+	AC_DEFINE(ENABLE_HS7429, 1, [enable hs7429 stuff])
+fi
+
+AC_ARG_ENABLE(hs7810a,
+	[  --enable-hs7810a           enable hs7810a stuff],
+	[AC_DEFINE(ENABLE_HS7810A, 1, [enable hs7810a stuff])])
+AM_CONDITIONAL(ENABLE_HS7810A, test "$enable_hs7810a" = "yes")
+if test "$enable_hs7810a" = "yes"; then
+	AC_DEFINE(ENABLE_HS7810A, 1, [enable hs7810a stuff])
+fi
+
+AC_ARG_ENABLE(hs7819,
+	[  --enable-hs7819            enable hs7819 stuff],
+	[AC_DEFINE(ENABLE_HS7819, 1, [enable hs7819 stuff])])
+AM_CONDITIONAL(ENABLE_HS7819, test "$enable_hs7819" = "yes")
+if test "$enable_hs7819" = "yes"; then
+	AC_DEFINE(ENABLE_HS7819, 1, [enable hs7819 stuff])
+fi
+
+AC_ARG_ENABLE(ufs910,
+	[  --enable-ufs910            enable ufs910 stuff],
+	[AC_DEFINE(ENABLE_UFS910, 1, [enable ufs910 stuff])])
+AM_CONDITIONAL(ENABLE_UFS910, test "$enable_ufs910" = "yes")
+if test "$enable_ufs910" = "yes"; then
+	AC_DEFINE(ENABLE_UFS910, 1, [enable ufs910 stuff])
+fi
+
+AC_ARG_ENABLE(ufs910,
+	[  --enable-ufs910            enable ufs910 stuff],
+	[AC_DEFINE(ENABLE_UFS910, 1, [enable ufs910 stuff])])
+AM_CONDITIONAL(ENABLE_UFS910, test "$enable_ufs910" = "yes")
+if test "$enable_ufs910" = "yes"; then
+	AC_DEFINE(ENABLE_UFS910, 1, [enable ufs910 stuff])
+fi
+
+AC_ARG_ENABLE(ufs912,
+	[  --enable-ufs912            enable ufs912 stuff],
+	[AC_DEFINE(ENABLE_UFS912, 1, [enable ufs912 stuff])])
+AM_CONDITIONAL(ENABLE_UFS912, test "$enable_ufs912" = "yes")
+if test "$enable_ufs912" = "yes"; then
+	AC_DEFINE(ENABLE_UFS912, 1, [enable ufs912 stuff])
+fi
+
+AC_ARG_ENABLE(ufs913,
+	[  --enable-ufs913            enable ufs913 stuff],
+	[AC_DEFINE(ENABLE_UFS913, 1, [enable ufs913 stuff])])
+AM_CONDITIONAL(ENABLE_UFS913, test "$enable_ufs913" = "yes")
+if test "$enable_ufs913" = "yes"; then
+	AC_DEFINE(ENABLE_UFS913, 1, [enable ufs913 stuff])
+fi
+
+AC_ARG_ENABLE(ufs922,
+	[  --enable-ufs922            enable ufs922 stuff],
+	[AC_DEFINE(ENABLE_UFS922, 1, [enable ufs922 stuff])])
+AM_CONDITIONAL(ENABLE_UFS922, test "$enable_ufs922" = "yes")
+if test "$enable_ufs922" = "yes"; then
+	AC_DEFINE(ENABLE_UFS922, 1, [enable ufs922 stuff])
+fi
+
+AC_ARG_ENABLE(ufc960,
+	[  --enable-ufc960            enable ufc960 stuff],
+	[AC_DEFINE(ENABLE_UFC960, 1, [enable ufc960 stuff])])
+AM_CONDITIONAL(ENABLE_UFC960, test "$enable_ufc960" = "yes")
+if test "$enable_ufc960" = "yes"; then
+	AC_DEFINE(ENABLE_UFC960, 1, [enable ufc960 stuff])
+fi
+
+AC_ARG_ENABLE(adb_box,
+	[  --adb_box                  enable adb_box stuff],
+	[AC_DEFINE(ENABLE_ADB_BOX, 1, [enable adb_box stuff])])
+AM_CONDITIONAL(ENABLE_ADB_BOX, test "$enable_adb_box" = "yes")
+if test "$enable_adb_box" = "yes"; then
+	AC_DEFINE(ENABLE_ADB_BOX, 1, [enable adb_box stuff])
+fi
+
+AC_ARG_ENABLE(vitamin_hd5000,
+	[  --enable-vitamin_hd5000    enable vitamin_hd5000 stuff],
+	[AC_DEFINE(ENABLE_VITAMIN_HD5000, 1, [enable vitamin_hd5000 stuff])])
+AM_CONDITIONAL(ENABLE_VITAMIN_HD5000, test "$enable_vitamin_hd5000" = "yes")
+if test "$enable_vitamin_hd5000" = "yes"; then
+	AC_DEFINE(ENABLE_VITAMIN_HD5000, 1, [enable vitamin_hd5000 stuff])
+fi
+
+AC_ARG_ENABLE(hl101,
+	[  --enable-hl101             enable hl101 stuff],
+	[AC_DEFINE(ENABLE_HL101, 1, [enable hl101 stuff])])
+AM_CONDITIONAL(ENABLE_HL101, test "$enable_hl101" = "yes")
+if test "$enable_hl101" = "yes"; then
+	AC_DEFINE(ENABLE_HL101, 1, [enable hl101 stuff])
+fi
+
+AC_ARG_ENABLE(vip1_v1,
+	[  --enable-vip1_v1           enable vip1_v1 stuff],
+	[AC_DEFINE(ENABLE_VIP1_V1, 1, [enable vip1_v1 stuff])])
+AM_CONDITIONAL(ENABLE_VIP1_V1, test "$enable_vip1_v1" = "yes")
+if test "$enable_vip1_v1" = "yes"; then
+	AC_DEFINE(ENABLE_VIP1_V1, 1, [enable vip1_v1 stuff])
+fi
+
+AC_ARG_ENABLE(vip1_v2,
+	[  --enable-vip1_v2           enable vip1_v2 stuff],
+	[AC_DEFINE(ENABLE_VIP1_V2, 1, [enable vip1_v2 stuff])])
+AM_CONDITIONAL(ENABLE_VIP1_V2, test "$enable_vip1_v2" = "yes")
+if test "$enable_vip1_v2" = "yes"; then
+	AC_DEFINE(ENABLE_VIP1_V2, 1, [enable vip1_v2 stuff])
+fi
+
+AC_ARG_ENABLE(vip2,
+	[  --enable-vip2              enable vip2 stuff],
+	[AC_DEFINE(ENABLE_VIP2, 1, [enable vip2 stuff])])
+AM_CONDITIONAL(ENABLE_VIP2, test "$enable_vip2" = "yes")
+if test "$enable_vip2" = "yes"; then
+	AC_DEFINE(ENABLE_VIP2, 1, [enable vip2 stuff])
+fi
+
+AC_ARG_ENABLE(pace7241,
+	[  --enable-pace7241          enable pace7241 stuff],
+	[AC_DEFINE(ENABLE_PACE7241, 1, [enable pace7241 stuff])])
+AM_CONDITIONAL(ENABLE_PACE7241, test "$enable_pace7241" = "yes")
+if test "$enable_pace7241" = "yes"; then
+	AC_DEFINE(ENABLE_PACE7241, 1, [enable pace7241 stuff])
+fi
+
+AC_ARG_ENABLE(opt9600,
+	[  --enable-opt9600           enable opt9600 stuff],
+	[AC_DEFINE(ENABLE_OPT9600, 1, [enable opt9600 stuff])])
+AM_CONDITIONAL(ENABLE_OPT9600, test "$enable_opt9600" = "yes")
+if test "$enable_opt9600" = "yes"; then
+	AC_DEFINE(ENABLE_OPT9600, 1, [enable opt9600 stuff])
+fi
+
+AC_ARG_ENABLE(opt9600mini,
+	[  --enable-opt9600mini       enable opt9600mini stuff],
+	[AC_DEFINE(ENABLE_OPT9600MINI, 1, [enable opt9600mini stuff])])
+AM_CONDITIONAL(ENABLE_OPT9600MINI, test "$enable_opt9600mini" = "yes")
+if test "$enable_opt9600mini" = "yes"; then
+	AC_DEFINE(ENABLE_OPT9600MINI, 1, [enable opt9600mini stuff])
+fi
+
+AC_ARG_ENABLE(opt9600prima,
+	[  --enable-opt9600prima      enable opt9600prima stuff],
+	[AC_DEFINE(ENABLE_OPT9600PRIMA, 1, [enable opt9600prima stuff])])
+AM_CONDITIONAL(ENABLE_OPT9600PRIMA, test "$enable_opt9600prima" = "yes")
+if test "$enable_opt9600prima" = "yes"; then
+	AC_DEFINE(ENABLE_OPT9600PRIMA, 1, [enable opt9600prima stuff])
+fi
+
+AC_ARG_ENABLE(atemio520,
+	[  --enable-atemio520         enable atemio520 stuff],
+	[AC_DEFINE(ENABLE_ATEMIO520, 1, [enable atemio520 stuff])])
+AM_CONDITIONAL(ENABLE_ATEMIO520, test "$enable_atemio520" = "yes")
+if test "$enable_atemio520" = "yes"; then
+	AC_DEFINE(ENABLE_ATEMIO520, 1, [enable atemio520 stuff])
+fi
+
+AC_ARG_ENABLE(hchs8100,
+	[  --enable-hchs8100          enable hchs8100 stuff],
+	[AC_DEFINE(ENABLE_HCHS8100, 1, [enable hchs8100 stuff])])
+AM_CONDITIONAL(ENABLE_HCHS8100, test "$enable_hchs8100" = "yes")
+if test "$enable_hchs8100" = "yes"; then
+	AC_DEFINE(ENABLE_HCHS8100, 1, [enable hchs8100 stuff])
 fi
 
 AC_ARG_ENABLE(minimal,
@@ -56,6 +357,32 @@ fi
 AM_CONDITIONAL(ENABLE_MINIMAL, test "$enable_minimal" = "yes")
 
 dnl versions of plugins-base
+
+AC_ARG_WITH(libeplayer3,
+	AS_HELP_STRING([--with-libeplayer3],[use libeplayer3 as player engine support, yes or no]),
+	[with_libeplayer3=$withval],[with_libeplayer3=no])
+if test "$with_libeplayer3" = "yes"; then
+	PKG_CHECK_MODULES(LIBXINE, libeplayer3)
+	AC_DEFINE([ENABLE_LIBEPLAYER3],[1],[Define to 1 if you have libeplayer3])
+fi
+AM_CONDITIONAL(ENABLE_LIBEPLAYER3, test "$with_libeplayer3" = "yes")
+
+AC_ARG_ENABLE(mediafwgstreamer,
+	[  --enable-mediafwgstreamer      enable gstreamer as player engine supportt],
+	[AC_DEFINE(ENABLE_MEDIAFWGSTREAMER,1,[enable gstreamer as player engine support])])
+
+AM_CONDITIONAL(ENABLE_MEDIAFWGSTREAMER,test "$enable_mediafwgstreamer" = "yes")
+if test "$enable_mediafwgstreamer" = "yes"; then
+	AC_DEFINE(ENABLE_MEDIAFWGSTREAMER,1,[include gstreamer as player engine support])
+fi
+
+if test "$enable_mediafwgstreamer" = "yes"; then
+	PKG_CHECK_MODULES(GSTREAMER, gstreamer-$GST_MAJORMINOR gstreamer-pbutils-$GST_MAJORMINOR)
+	PKG_CHECK_MODULES(BASE, [freetype2 fribidi gstreamer-$GST_MAJORMINOR gstreamer-pbutils-$GST_MAJORMINOR libdvbsi++ libpng libxml-2.0 sigc++-2.0 libssl libcrypto])
+else
+	PKG_CHECK_MODULES(BASE, [freetype2 fribidi glib-2.0 libdvbsi++ libpng libxml-2.0 sigc++-2.0 libssl libcrypto])
+fi
+
 PKG_CHECK_MODULES(TUXTXT, tuxbox-tuxtxt)
 PKG_CHECK_MODULES(BASE, [freetype2 fribidi glib-2.0 libdvbsi++ libpng libxml-2.0 sigc++-2.0 libssl libcrypto])
 PKG_CHECK_MODULES(LIBDDVD, libdreamdvd, HAVE_LIBDDVD="yes", HAVE_LIBDDVD="no")
@@ -398,6 +725,75 @@ lib/python/Plugins/SystemPlugins/SH4BoosterControl/meta/Makefile
 lib/python/Plugins/SystemPlugins/SparkUnionTunerType/Makefile
 lib/python/Plugins/SystemPlugins/SparkUnionTunerType/meta/Makefile
 lib/python/Plugins/SystemPlugins/OnErrorRestartService/Makefile
+lib/python/Plugins/Extensions/ModemSettings/Makefile
+lib/python/Plugins/Extensions/adb_5800VFD/Makefile
+lib/python/Plugins/Extensions/adb_5800VFD/meta/Makefile
+lib/python/Plugins/Extensions/adb_5800VFD/locale/Makefile
+lib/python/Plugins/Extensions/adb_5800VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/adb_5800VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/CuberevoVFD/Makefile
+lib/python/Plugins/Extensions/fs9000VFD/Makefile
+lib/python/Plugins/Extensions/fs9000VFD/meta/Makefile
+lib/python/Plugins/Extensions/fs9000VFD/locale/Makefile
+lib/python/Plugins/Extensions/fs9000VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/fs9000VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/hs7110VFD/Makefile
+lib/python/Plugins/Extensions/hs7110VFD/meta/Makefile
+lib/python/Plugins/Extensions/hs7110VFD/locale/Makefile
+lib/python/Plugins/Extensions/hs7110VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/hs7110VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/hs742xVFD/Makefile
+lib/python/Plugins/Extensions/hs742xVFD/meta/Makefile
+lib/python/Plugins/Extensions/hs742xVFD/locale/Makefile
+lib/python/Plugins/Extensions/hs742xVFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/hs742xVFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/hs7810aVFD/Makefile
+lib/python/Plugins/Extensions/hs7810aVFD/meta/Makefile
+lib/python/Plugins/Extensions/hs7810aVFD/locale/Makefile
+lib/python/Plugins/Extensions/hs7810aVFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/hs7810aVFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/hs8200VFD/Makefile
+lib/python/Plugins/Extensions/hs8200VFD/meta/Makefile
+lib/python/Plugins/Extensions/hs8200VFD/locale/Makefile
+lib/python/Plugins/Extensions/hs8200VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/hs8200VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/hs9510VFD/Makefile
+lib/python/Plugins/Extensions/hs9510VFD/meta/Makefile
+lib/python/Plugins/Extensions/hs9510VFD/locale/Makefile
+lib/python/Plugins/Extensions/hs9510VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/hs9510VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/opt9600VFD/Makefile
+lib/python/Plugins/Extensions/opt9600VFD/meta/Makefile
+lib/python/Plugins/Extensions/opt9600VFD/locale/Makefile
+lib/python/Plugins/Extensions/opt9600VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/opt9600VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/pace7241VFD/Makefile
+lib/python/Plugins/Extensions/pace7241VFD/meta/Makefile
+lib/python/Plugins/Extensions/pace7241VFD/locale/Makefile
+lib/python/Plugins/Extensions/pace7241VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/pace7241VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/sparkVFD/Makefile
+lib/python/Plugins/Extensions/sparkVFD/meta/Makefile
+lib/python/Plugins/Extensions/sparkVFD/locale/Makefile
+lib/python/Plugins/Extensions/sparkVFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/sparkVFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/spark7162VFD/Makefile
+lib/python/Plugins/Extensions/spark7162VFD/meta/Makefile
+lib/python/Plugins/Extensions/spark7162VFD/locale/Makefile
+lib/python/Plugins/Extensions/spark7162VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/spark7162VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/ufs9xxVFD/Makefile
+lib/python/Plugins/Extensions/ufs9xxVFD/meta/Makefile
+lib/python/Plugins/Extensions/ufs9xxVFD/locale/Makefile
+lib/python/Plugins/Extensions/ufs9xxVFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/ufs9xxVFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/Extensions/hchsxx00VFD/Makefile
+lib/python/Plugins/Extensions/hchsxx00VFD/meta/Makefile
+lib/python/Plugins/Extensions/hchsxx00VFD/locale/Makefile
+lib/python/Plugins/Extensions/hchsxx00VFD/locale/nl/Makefile
+lib/python/Plugins/Extensions/hchsxx00VFD/locale/nl/LC_MESSAGES/Makefile
+lib/python/Plugins/SystemPlugins/VFD-Icons/Makefile
+lib/python/Plugins/SystemPlugins/VFD-Icons/meta/Makefile
 lib/python/Tools/Makefile
 po/Makefile
 main/Makefile
