@@ -83,7 +83,7 @@ void * start_loop (void *arg)
 	evfd vfd;
 	blocked = true;
 	//vfd.vfd_clear_icons();
-	vfd.vfd_write_string("-00-", true);
+	vfd.vfd_write_string("-Fulan v2-", true);
 	//run 2 times through all icons 
 	if (vfd.getVfdType() != 4)
 	{
