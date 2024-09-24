@@ -1,0 +1,118 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VFD-Icons for Fortis HS742X\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-17 17:45+0100\n"
+"PO-Revision-Date: 2016-01-17 17:45+0100\n"
+"Last-Translator: Audioniek\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: \n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+
+msgid "channel number"
+msgstr "zendernummer"
+
+msgid "channel name"
+msgstr "zendernaam"
+
+msgid "channel number and name"
+msgstr "zendernummer en -naam"
+
+msgid "date"
+msgstr "datum"
+
+msgid "day and date"
+msgstr "dag en datum"
+
+msgid "blank"
+msgstr "geen"
+
+msgid "nothing"
+msgstr "blanco display"
+
+msgid "time"
+msgstr "tijd"
+
+msgid "time and date"
+msgstr "tijd en datum"
+
+msgid "time, day and date"
+msgstr "tijd, dag en datum"
+
+msgid "once"
+msgstr "één keer"
+
+msgid "continuous"
+msgstr "voortdurend"
+
+msgid "all"
+msgstr "alle"
+
+msgid "partial"
+msgstr "gedeeltelijk"
+
+msgid "none"
+msgstr "geen"
+
+msgid "yes"
+msgstr "ja"
+
+msgid "blink"
+msgstr "knipperen"
+
+msgid "on"
+msgstr "aan"
+
+msgid "VFD display configuration"
+msgstr "VFD displayinstellingen"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "OK"
+msgstr "Bevestigen"
+
+msgid "Show on VFD display"
+msgstr "Info op VFD display"
+
+msgid "Show on VFD display in standby"
+msgstr "Info op VFD display in standby"
+
+msgid "VFD brightness"
+msgstr "VFD helderheid"
+
+msgid "Standby brightness"
+msgstr "Helderheid in standby"
+
+msgid "Uppercase letters only"
+msgstr "Alleen hoofdletters"
+
+msgid "Scroll text"
+msgstr "Tekst scrollen"
+
+msgid "Center text"
+msgstr "Tekst centreren"
+
+msgid "Show icons"
+msgstr "Toon iconen"
+
+msgid "Stby LED brightness"
+msgstr "LED helderheid stby"
+
+msgid "Rec LED brightness"
+msgstr "LED helderheid opn."
+
+msgid "Show this plugin in plugin menu"
+msgstr "Toon deze plugin in het Applicatie-menu"
+
+msgid "VFD SETUP"
+msgstr "VFD-instellingen"
+
+msgid "VFD display configuration for Fortis HS742X"
+msgstr "VFD displayinstellingen voor Fortis HS742X"
